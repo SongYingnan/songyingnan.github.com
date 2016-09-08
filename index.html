@@ -4,46 +4,58 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
-        body{
+        body {
             background: #000;
         }
-        h1{
-            font-size: 34px;
+
+        h1 {
+            font-size: 68px;
             color: #fff;
             font-family: 微软雅黑;
-            font-weight: bold}
-        p{
-            font-size: 24px;
+            font-weight: bold
+        }
+
+        p {
+            font-size: 46px;
             color: #fff;
             font-family: 微软雅黑;
         }
-        div{
+
+        span {
+    font-size: 28px;
+        }
+
+        div {
             position: absolute;
             width: 303px;
             height: 333px;
             background: url("12.png") no-repeat;
             background-size: 100%;
-            top:0;
+            top: 0;
             left: 0;
             opacity: 0.7;
         }
     </style>
     <script>
-        window.onload= function () {
-            document.touchstart=document.onclick= function (ev) {
-                var oZ=document.createElement('div');
+        window.onload = function () {
+            document.touchstart = document.onclick = function (ev) {
+                var oZ = document.createElement('div');
                 document.body.appendChild(oZ);
-               var disX= ev.pageX-oZ.offsetWidth/2;
-               var disY= ev.pageY-oZ.offsetHeight/2;
-                oZ.style.left=disX+'px';
-                oZ.style.top=disY+'px';
+                var disX = ev.pageX - oZ.offsetWidth / 2;
+                var disY = ev.pageY - oZ.offsetHeight / 2;
+                oZ.style.left = disX + 'px';
+                oZ.style.top = disY + 'px';
 
             }
         }
     </script>
 </head>
 <h1>&nbsp;&nbsp;&nbsp;欢迎来到宋英男的个人站</h1>
-<p>&nbsp;&nbsp;&nbsp; 网站建设中，敬请期待...</p>
+
+<p>&nbsp;&nbsp;&nbsp; 网站建设中，敬请期待... <br/>
+    <span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;电脑端请使用IE9以上、谷歌或safari浏览器访问</span>
+</p>
+
 <body>
 </body>
 </html>
