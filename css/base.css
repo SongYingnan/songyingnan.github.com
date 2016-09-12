@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0; margin:0;}
+a{text-decoration:none; color:#000;}
+h1,h2,h3,h4,h5,h6{font-weight:normal; font-size:12px;}
+li{list-style:none;}
+i,em{font-style:normal;}
+b,strong{font-weight:normal;}
+ul,ol,dl,dt,dd{padding:0; margin:0;}
+
+img{vertical-align:top;}
+a img{border:none;}
+.fl{float:left;}
+.fr{float:right;}
+.clearfix:after{display:block; content:''; clear:both;}
+.clearfix{zoom:1;}
+
+.w{width:930px; margin:0 auto;}
+
+
