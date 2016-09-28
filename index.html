@@ -1,251 +1,119 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>home</title>
-    <link rel="stylesheet" href="css/base.css"/>
-    <style>
-        body {
-            background: #fff;
-        }
-
-        ul {
-            margin-bottom: 10px;
-        }
-
-        .box {
-            width: 940px;
-            height: 100%;
-            margin: 30px auto;
-        }
-
-        .about {
-            width: 300px;
-            height: 346px;
-            background: #fff;
-            position: relative;
-        }
-
-        .about li {
-            width: 300px;
-        }
-
-        .about .about_img {
-            height: 267px;
-            background: #666;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: url("images/big4.jpg");
-            background-size: 100%;
-        }
-            li{
-                transition: 0.7s all ease;
-            }
-        .about .about_font {
-            height: 69px;
-            background: url("img/aboutme.png") 85px 15px no-repeat #5abeb2;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-        .about .about_font:hover{
-            background: url("img/aboutme.png") 85px 15px no-repeat #ccc;
-            border-radius: 10px;
-        }
-
-
-        .name {
-            width: 340px;
-            height: 345px;
-            background: #fff;
-            background: url("img/name.png") no-repeat;
-            transition:1s all ease;
-        }
-        .name:hover{
-            -webkit-transform:rotateY(360deg);
-        }
-
-        .callme {
-            width: 300px;
-            height: 346px;
-            position: relative;
-        }
-
-        .callme li {
-            width: 300px;
-        }
-
-        .callme_img {
-            height: 267px;
-            background: #666;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: url("images/page1_img2.jpg") no-repeat;
-            background-size:100%
-        }
-
-        .callme_font {
-            height: 69px;
-            background: url("img/callme.png") 75px 2px no-repeat #5abeb2;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-        .callme_font:hover{
-            background: url("img/callme.png") 75px 2px no-repeat #ccc;
-            border-radius: 10px;
-        }
-        .works {
-            width: 500px;
-            height: 430px;
-            position: relative;
-            background: #fff;
-            margin-right: 12px;
-        }
-
-        .works .works_font {
-            position: absolute;
-            left: 0;
-            width: 119px;
-            height: 430px;
-            background: url("img/worker.png") no-repeat 2px 200px #5abeb2;
-        }
-        .works .works_font:hover{
-            background: url("img/worker.png") no-repeat 2px 200px #ccc;
-            border-radius: 15px;
-
-        }
-
-        .works .works_img {
-            height: 430px;
-            width: 372px;
-            position: absolute;
-            right: 0;
-            background: #666;
-            background: url("images/page1_img3.jpg");
-        }
-
-        .time {
-            width: 428px;
-            height: 430px;
-            position: relative;
-            background: #fff;
-
-        }
-
-        .time .time_font {
-            position: absolute;
-            left: 0;
-            width: 124px;
-            height: 430px;
-            background: url("img/time1.png") no-repeat -19px 200px #5abeb2;
-        }
-        .time .time_font:hover{
-            background: url("img/time1.png") no-repeat -19px 200px #ccc;
-            border-radius: 15px;
-        }
-
-        .time .time_img {
-            height: 430px;
-            width: 294px;
-            position: absolute;
-            right: 0;
-            background: #666;
-            background: url("images/page1_img4.jpg") no-repeat;
-            background-size: 100%;
-        }
-
-        .meg {
-            width: 580px;
-            height: 112px;
-            margin-right: 10px;
-            margin-bottom: 0px;
-            background: #fff;
-            position: relative;
-        }
-
-        .game {
-            width: 350px;
-            height: 110px;
-            background: #fff;
-            margin-bottom: 0px;
-            position: relative;
-        }
-
-        .meg_font, .game_font {
-            width: 197px;
-            height: 112px;
-            background: #5abeb2;
-            position: absolute;
-            left: 0;
-        }
-
-        .game .game_font {
-            width: 148px;
-            background: url("img/meg.png") no-repeat 10px 26px #5abeb2;
-        }
-        .game .game_font:hover{
-            background: url("img/meg.png") no-repeat 10px 26px #ccc;
-            border-radius: 15px;
-        }
-
-        .meg_img, .game_img {
-            height: 112px;
-            background: #666;
-            position: absolute;
-            right: 0;
-            width: 192px;
-            background: url("images/page1_img6.jpg") no-repeat;
-        }
-
-        .meg .meg_font {
-            background: url("img/xm.png") no-repeat 40px 26px #5abeb2;
-        }
-        .meg .meg_font:hover{
-            background: url("img/xm.png") no-repeat 40px 26px #ccc;
-            border-radius: 15px;
-        }
-
-        .meg .meg_img {
-            width: 374px;
-            background: url("images/page1_img5.jpg") no-repeat;
-            background-size: 100%;
-        }
-
-
-    </style>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>宋英男</title>
+	<link rel="stylesheet" href="css/main.css" />
+	<link href="favicon.ico" rel="" type="image/x-icon" />
+	<script src="js/main.js"></script>
 </head>
 <body>
-<div class="box clearfix">
-    <ul class="about fl">
-        <li class="about_img"></li>
-        <li class="about_font"></li>
-    </ul>
-    <div class="name fl">
-    </div>
-    <ul class="callme fl">
-        <li class="callme_img"></li>
-        <li class="callme_font"></li>
-    </ul>
-    <ul class="works fl">
-        <li class="works_img"></li>
-        <li class="works_font"></li>
-    </ul>
-    <ul class="time fl">
-        <li class="time_img"></li>
-        <li class="time_font"></li>
-    </ul>
-    <ul class="meg fl">
-        <li class="meg_img"></li>
-        <li class="meg_font"></li>
-    </ul>
-    <ul class="game fl">
-        <li class="game_img"></li>
-        <li class="game_font"></li>
-    </ul>
-
-</div>
+	<header>
+		<div class="nav-wrap clearfix">
+			<ul class="nav clearfix">
+				<li><a href="javascript:;">首页</a><span class="sub-bar"></span></li>
+				<li><a href="myworks-js.html">JS作品页</a><span class="sub-bar"></span></li>
+				<li><a href="myworks-css.html">CSS作品页</a><span class="sub-bar"></span></li>
+				<li><a href="myworks-h5.html">HTML5作品页</a><span class="sub-bar"></span></li>
+				<li><a href="myworks-h5.html#app">手机端作品页</a><span class="sub-bar"></span></li>
+				<li><a href="credit.html">联系我</a><span class="sub-bar"></li>
+			</ul>
+		</div>
+		<div class="face">
+			<img src="img/ou.jpg" />
+		</div>
+		<h1><p><span>宋</span><span>英</span><span>男</span><span> </span><span> </span><span> </span>W<span></span>E<span></span>B<span></span><span>前</span><span>端</span><span>工</span><span>程</span><span>师</span></p></h1>
+		<div class="me-btn left">
+			<a href="credit.html">转到个人信息页</a>
+			<span class="bar top"></span>
+			<span class="bar right"></span>
+			<span class="bar bottom"></span>
+			<span class="bar left"></span>
+		</div>
+		<div class="me-btn right">
+			<a href="myworks-js.html">转到作品页</a>
+			<span class="bar top"></span>
+			<span class="bar right"></span>
+			<span class="bar bottom"></span>
+			<span class="bar left"></span>
+		</div>
+	</header>
+	<section class="sim-show">
+		<h2 class="sim-tit">技能与作品</h2>
+		<p class="sim-info">熟练Javascript jQuery HTML/HTML5 CSS/CSS3</p>
+		<ul class="clearfix">
+			<li class="list">
+				<a href="myworks-css.html">
+					<img src="img/css.jpg" alt="">
+					<div class="opabox">
+						<h2>CSS & HTML</h2>
+						<p>1.理解W3C标准并熟练运用</p>
+						<p>2.精通HTML+CSS标准布局</p>
+						<p>3.能解决个浏览器之间的兼容问题</p>
+					</div>
+				</a>
+			</li>
+			<li class="list">
+				<a href="myworks-js.html">
+					<img src="img/js.jpg" alt="">
+					<div class="opabox">
+						<h2>Javascript</h2>
+						<p>1.熟练掌握js原生、JQuery</p>
+						<p>2.熟练运用ajax、jsonp进行数据交互</p>
+						<p>3.熟练掌握面向对象机制</p>
+					</div>
+				</a>
+			</li>
+			<li class="list">
+				<a href="myworks-h5.html">
+					<img src="img/h5.jpg" alt="">
+					<div class="opabox">
+						<h2>CSS3 & HTML5</h2>
+						<p>1.理解W3C标准并熟练运用</p>
+						<p>2.精通HTML+CSS标准布局</p>
+						<p>3.能解决个浏览器之间的兼容问题</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<section class="me">
+		<div class="shadow"></div>
+		<h2>About Me</h2>
+		<div class="me-box">
+			<ul>
+				<li style="opacity:1;">
+					<p>熟练掌握HTML5、CSS3、JavaScript开发</p>
+					<p>熟悉W3C标准与ES规范，熟悉Web语义化</p>
+					<p>熟练掌握盒模型、常用布局以及浏览器和移动设备兼容性</p>
+					<p>有相关网站构建和调试经验，良好的责任心和学习能力，新知识理解快，乐于分享</p>
+					<p>热爱coding</p>
+				</li>
+				<li>
+					<p>能用原生js进行复杂页面的开发</p>
+					<p>熟练运用原生js编写ajax和jsonp函数，进行普通交互和跨域交互</p>
+					<p>同时熟悉jQuery快速开发PC端也面以及运用zepto开发移动端页面</p>
+					<p>思路清晰，思维灵活，能根据不同情况运用不同方法</p>
+				</li>
+				<li>
+					<p>熟悉面向对象思想，能运用面向对象进行开发</p>
+					<p>熟悉HTML5的canvas、svg，能够运用canvas和raphaeljs进行图标制作</p>
+					<p>了解MVC思想，了解angularjs的简单应用</p>
+					<p>了解一些PHP和Mysql数据库技术，对后台也抱有浓厚兴趣</p>
+				</li>
+			</ul>
+			<ol class="clearfix">
+				<li class="on"></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+	</section>
+	<section class="others">
+		<h2>Please contact me</h2>
+		<h3>TEL: 18686775399</h3>
+		<h3>QQ: 740122706</h3>
+		<h3>Email: song_h5@sina.com</h3>
+	</section>
 </body>
 </html>
