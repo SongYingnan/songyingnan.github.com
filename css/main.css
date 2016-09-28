@@ -96,7 +96,7 @@ header .face {
   -moz-transition: 0.3s all ease-out;
   -ms-transition: 0.3s all ease-out;
   -o-transition: 0.3s all ease-out;
-  transition: 0.3s all ease-out;
+  transition: 1s all ease-out;
 }
 header .face:hover {
   -webkit-transform: rotateY(360deg);
@@ -104,11 +104,35 @@ header .face:hover {
   -ms-transform: rotateY(360deg);
   -o-transform: rotateY(360deg);
   transform: rotateY(360deg);
+
 }
+/*houjia*/
+header h1 p{
+  transition: 0.3s all ease-out;
+  position: relative;
+  top: 0px;
+}
+header h1 p:hover{
+  box-shadow: 0 10px 10px #000 ;
+  top: -5px;
+
+}
+.sim-show h2{
+  transition: 1s all ease-out;
+  color: #05172f;
+  border-bottom: 1px solid #000000;
+
+}
+.sim-show h2:hover{
+  transform: rotateZ(30deg);
+
+}
+
+
+/*****后加***/
 header .face img {
-  width: 286px;
-  margin-left: -28px;
-  margin-top: -118px;
+  width: 240px;
+  margin-top: -1px;
   opacity: 0.8;
 }
 header h1 {
@@ -328,9 +352,9 @@ header .me-btn a {
   font-weight: 300;
 }
 .sim-info {
-  color: #fff;
+  color: #000;
   margin: 20px 0;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  text-shadow: 3px 3px 3px #000;
   font-size: 20px;
 }
 .me {
@@ -448,7 +472,7 @@ header .me-btn a {
   box-sizing: border-box;
 }
 .others h3 {
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  text-shadow: 5px 5px 5px #000;
   padding: 20px 20px 20px;
   color: #fff;
   font-size: 45px;
