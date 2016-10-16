@@ -1,0 +1,17 @@
+.inner{
+    width: 16rem;
+    height: 23rem;
+    position: absolute;
+    background: #ccc;
+    opacity: 0;
+    z-index: -1;
+    -webkit-transition:1s all ease;
+}
+.information{
+    padding-top: 0.425rem;
+    padding-left: 0.425rem;
+    float: left;
+    color: #ccc;
+    height:0.5rem;
+    font-size: 0.5rem;
+}

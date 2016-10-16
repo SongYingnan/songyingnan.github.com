@@ -1,0 +1,97 @@
+* {font-family: Î¢ÈíÑÅºÚ;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+html{
+    font-size: 20px;
+}
+#box{
+    width: 100%;
+    overflow: hidden;
+}
+#box header,#box footer{
+    width: 16rem;
+    height: 3rem;
+    line-height: 1.5rem;
+    background: #399;
+    text-align: center;
+    color: #fff;
+    line-height: 3rem;
+    font-size: 1.6rem;
+}
+#box footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+#box #news{
+    width: 400%;
+    overflow: hidden;
+}
+#box dl{
+    width: 25%;
+    float: left;
+}
+#box dt{
+    text-align: center;
+    background: #ccc;
+    height: 2rem;
+    line-height: 2rem;
+}
+#box dd{
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    height: 5.5rem;
+    line-height: 1.5rem;
+}
+h4 a {
+    display: block;
+}
+h4 img{
+    display: block;
+}
+#loding{
+    text-align: center;
+    font-size: 0.7rem;
+    height: 0px;
+    overflow: hidden;
+}
+.nav li{
+    width: 25%;
+    float: left;
+    font-size: 1rem;
+}
+.nav li a{
+    color: #fff;
+    text-decoration: none;
+}
+h4{
+    display: block;width: 63%;float: left;font-size: 0.8rem;text-align: left;padding-left: 2%;
+    height: 80%;font-weight:normal;
+}
+dd img{
+    width: 34%;float: left;padding-top: 2%;
+}
+.nothing{
+    width: 100%;height: 3rem;line-height: 3rem;text-align: center;display: inline-block;color: #ccc;
+}
+.subscribe{
+    width: 90%;height: 90%;padding-left: 5%;font-size: 1.5rem;padding-top: 5%;
+}
+.subimg{
+    width: 3rem;height: 3rem;
+}
+.subscribe_text{
+    font-size: 0.8rem;color: #aaa;
+}
+.cool{
+    width: 7rem;
+    height: 1rem;
+}
+.search{
+    font-size: 0.7rem;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+}

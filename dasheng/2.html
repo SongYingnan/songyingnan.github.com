@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>智能社--http://www.zhinengshe.com</title>
+    <style>
+        * {font-family: 微软雅黑;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        html{
+            font-size: 20px;
+        }
+        #box{
+            width: 100%;
+            overflow: hidden;
+        }
+        #box header,#box footer{
+            width: 16rem;
+            height: 3rem;
+            line-height: 1.5rem;
+            background: #399;
+            text-align: center;
+            color: #fff;
+            line-height: 3rem;
+            font-size: 1.6rem;
+        }
+        #box footer{
+            position: fixed;
+            left: 0;
+            bottom: 0;
+        }
+        #box #news{
+            width: 400%;
+            overflow: hidden;
+        }
+        #box dl{
+            width: 25%;
+            float: left;
+        }
+        #box dt{
+            text-align: center;
+            background: #ccc;
+            height: 2rem;
+            line-height: 2rem;
+        }
+        #box dd{
+            text-align: center;
+            border-bottom: 1px dashed #000;
+            height: 11rem;
+            line-height: 1.5rem;
+        }
+        #loding{
+            text-align: center;
+            font-size: 0.7rem;
+            height: 0px;
+            overflow: hidden;
+        }
+        .nav li{
+            width: 25%;
+            float: left;
+            font-size: 1rem;
+        }
+        .nav li a{
+            color: #fff;
+            text-decoration: none;
+        }
+        dd img{
+            width: 34%;float: left;padding-top: 2%;
+        }
+        dd video{
+            width: 15rem;
+        }
+        .nothing{
+            width: 100%;height: 3rem;line-height: 3rem;text-align: center;display: inline-block;color: #ccc;
+        }
+    </style>
+    <script>
+        ;(function(){
+            function change(){
+                document.documentElement.style.fontSize=20*document.documentElement.clientWidth/320+'px';
+            }
+            change();
+            window.addEventListener('resize', change, false);
+        })();
+
+        document.addEventListener('DOMContentLoaded', function(){
+            var oNews=document.querySelector('#news');
+            var aDl=oNews.children;
+            var oLoading=document.querySelector('#loding');
+
+            var x=0;
+            var y=0;
+            var dir='';
+            var iNow=0;
+            oNews.addEventListener('touchstart', function(ev){
+                var downX=ev.targetTouches[0].pageX;
+                var downY=ev.targetTouches[0].pageY;
+                var disX=downX-x;
+                var disY=downY-y;
+
+
+                oNews.style.transition='none';
+                function fnMove(ev){
+                    if(dir){
+                        if(dir=='lr'){
+                            x=ev.targetTouches[0].pageX-disX;
+                            oNews.style.transform='translate3d('+x+'px, 0, 0)';
+                        }else if(dir=='bottom'){
+                            y=ev.targetTouches[0].pageY-disY;
+
+                            y>80 && (y=80);
+                            oLoading.style.height=y+'px';
+                        }
+                    }else{
+                        if(Math.abs(ev.targetTouches[0].pageX-downX)>20){
+                            dir='lr';
+                        }else if(Math.abs(ev.targetTouches[0].pageY-downY)>20){
+                            dir='bottom';
+                        }
+                    }
+                }
+                function fnEnd(ev){
+                    document.removeEventListener('touchmove', fnMove, false);
+                    document.removeEventListener('touchend', fnEnd, false);
+
+                    if(dir=='lr'){
+                        var upX=ev.changedTouches[0].pageX;
+                        if(Math.abs(upX-downX)>50){
+                            if(downX>upX){
+                                iNow++;
+                                if(iNow>=aDl.length)iNow=aDl.length-1;
+                            }else{
+                                iNow--;
+                                if(iNow<0)iNow=0;
+                            }
+                        }
+                        x=-iNow*aDl[0].offsetWidth;
+                        oNews.style.transition='.4s all ease';
+                        oNews.style.transform='translate3d('+x+'px, 0, 0)';
+                    }else if(dir=='bottom'){
+                        oLoading.style.transition='.4s all ease';
+                        oLoading.style.height=0;
+                    }
+
+                    dir='';
+                }
+                document.addEventListener('touchmove', fnMove, false);
+                document.addEventListener('touchend', fnEnd, false);
+            }, false);
+        }, false);
+    </script>
+    <scrippt src="js/touch.js"></scrippt>
+</head>
+<body>
+<div id="box">
+    <header>header</header>
+    <section>
+        <div id="loding">
+            <img src="roller.gif"><br>
+            <span>下拉刷新</span>
+        </div>
+        <div id="news">
+            <dl>
+                <dt>视频</dt>
+                <dd>
+                        <video src="video/demo.mp4" controls poster="img/3.jpg">
+                        </video>
+                        <p>周杰伦《告白气球》被外国人唱</p>
+                </dd>
+                <dd>
+                    <video src="video/demo.mp4" controls poster="img/6.jpg">
+                    </video>
+                    <p>蜡笔小心最喜欢的人竟然是</p>
+                </dd>
+                <dd>
+                    <video src="video/demo.mp4" controls poster="img/7.jpg">
+                    </video>
+                    <p>这个在facebook上传疯了</p>
+                </dd>
+                <p class="nothing">没有啦 T.T</p>
+            </dl>
+        </div>
+    </section>
+    <footer>
+        <ul class="nav">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="2.html">视频</a></li>
+            <li><a href="">关注</a></li>
+            <li><a href="4.html">我的</a></li>
+        </ul>
+    </footer>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

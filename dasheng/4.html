@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            vertical-align: top;
+            font-style: normal;
+            font-family: 微软雅黑;
+        }
+        a{
+            color: #000;
+            text-decoration: none;
+        }
+        html{font-size:20px;}
+        body{background: #ececf4;}
+        .warp{
+            width: 16rem;
+            overflow: hidden;
+        }
+        header{
+            width: 16rem;
+            height: 3rem;
+            line-height: 1.5rem;
+            background: #399;
+            text-align: center;
+            color: #fff;
+            line-height: 3rem;
+            font-size: 1.6rem;
+        }
+        .warp .idCard{
+            width: 100%;
+            height: 5.5rem;
+            overflow: hidden;
+            font-size: 1rem;
+            line-height: 5.5rem;
+            color: #000;
+            text-align: center;
+        }
+        .warp .idCard img{
+            width: 100%;
+            position: absolute;
+            top: -2rem;
+
+        }
+        .warp .cate{
+            width: 16rem;
+            height: 1.3rem;
+            background: #fff;
+            padding: 0.25rem 0;
+            line-height: 1.3rem;
+            /*overflow: hidden;*/
+            margin-bottom: 0.575rem;
+        }
+        .warp .cate li{
+            float: left;
+            width: 4rem
+        }
+        .warp .cate li a{
+            font-size: 0.75rem;
+            margin-left: 2.925rem;
+        }
+        .warp .cate li.border{
+            border-left: 1px solid #dcdcdc;
+            border-right: 1px solid #dcdcdc;
+        }
+        .warp .cate li:nth-child(1){
+            background: url("img/dd.png") no-repeat 1.55rem 0.1rem;
+            background-size:0.725rem 0.95rem;
+            width: 5rem;
+        }
+        .warp .cate li:nth-child(2){
+            background: url("img/sc.png") no-repeat 1.55rem 0.1rem;
+            background-size:0.9755rem 0.925rem;
+            width: 5rem;
+        }
+        .warp .cate li:nth-child(3){
+            background: url("img/tj.png") no-repeat 1.55rem 0.1rem;
+            background-size:0.925rem 0.9rem;
+            width: 5rem;
+        }
+        .warp .main .sz li{
+            background: #fff;
+            color: #585858;
+            font-size: 0.625rem;
+            height: 1.625rem;
+            line-height: 1.625rem;
+            padding-left: 0.375rem;
+        }
+        .warp .main .sz a{
+            width: 17.775rem;
+            display: block;
+            background: url("img/right.png") no-repeat 16rem;
+            background-size:0.35rem 0.65rem;
+        }
+        .warp .main .sz .an{
+            background: url("img/kg.png") no-repeat 12.5rem;
+            background-size:1.975rem 1.1rem;
+        }
+        .warp .main .sz .bb{
+            border-bottom: 1px solid #e4e4e4;
+        }
+        .warp .main .sz .mb{
+            margin-bottom: 0.925rem;
+        }
+        .warp .main .kbc{
+            height: 5.35rem;
+            box-shadow:inset 0 -10px 6px #d2d2d9;
+        }
+        .warp footer{
+            width: 100%;
+            height: 3rem;
+            line-height: 1.5rem;
+            background: #399;
+            text-align: center;
+            color: #fff;
+            line-height: 3rem;
+            font-size: 1.6rem;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+        }
+
+        .nav li{
+            width: 25%;
+            float: left;
+            font-size: 1rem;
+        }
+        .nav li a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem
+        }
+    </style>
+    <style>
+        .land{
+            overflow: hidden;
+            position: absolute;
+            width: 16rem;
+            height: 22.575rem;
+            background: #eee;
+            z-index: 3;
+
+        }
+        .register{
+            overflow: hidden;
+            position: absolute;
+            width: 16rem;
+            height: 22.575rem;
+            background: #eee;
+            /*display: none;*/
+            z-index: 4;
+
+        }
+        .inputs{
+            width: 10rem;
+            height: 1.45rem;
+            margin-top: 1rem;
+            display:block; font-weight:bold; background:url(img/inputBg.png) -0.1rem 0 no-repeat;
+        }
+        .loginList{
+            width: 10rem;
+            height: 16rem;
+           margin: 3rem auto;
+        }
+        .reg{
+            width: 3rem;
+            height: 1.5rem;
+            margin-top: 1rem;
+            float: right;
+            margin-left: 1rem;
+        }
+        .box_user{-webkit-transform-style:preserve-3d; -webkit-transition:1s all ease; -webkit-transform:perspective(16rem) rotateY(0deg);position: relative;
+            top: 0;}
+        .box_user .front{ -webkit-transform:translateZ(1px);}
+        .box_user .back{ -webkit-transform:translateZ(-1px) scale(-1,1);}
+    </style>
+    <script src="ajax.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            var oBtn_login=document.querySelector('#login_land');
+            var oBtn_land=document.querySelector('#add_land');
+            var oLogin=document.querySelector('.register');
+            var oBox_user=document.querySelector('.box_user');
+            var con=0
+
+            oBtn_login.addEventListener('touchstart', function () {
+                con+=180;
+                oBox_user.style.WebkitTransform='perspective(800px) rotateY('+con+'deg)';
+            },false)
+            oBtn_land.addEventListener('touchstart', function () {
+                con-=180;
+                oBox_user.style.WebkitTransform='perspective(800px) rotateY('+con+'deg)';;
+            },false)
+
+
+
+
+
+//            ajax交互
+
+
+
+        },false)
+    </script>
+    <script>
+        window.onload=function(){
+            var url='user.php';
+
+            ;(function(){
+                var oUser=document.getElementById('add_user');
+                var oPass=document.getElementById('add_pass');
+                var oBtn=document.getElementById('add_btn');
+                var oBox=document.querySelector('#box_user');
+
+                oBtn.onclick=function(){
+
+                    ajax(url,{
+                        act:'add',
+                        user:encodeURIComponent(oUser.value),
+                        pass:encodeURIComponent(oPass.value)
+                    },function(str){
+                        var json=new Function('return '+str)();
+                        if(json.error){
+                            alert('注册失败！')
+                        }else{
+                            alert('注册成功！')
+                            oBox.style.WebkitTransform='perspective(800px) rotateY(0deg)'
+
+                        }
+                    });
+                }
+            })();
+            ;(function(){
+                var oUser=document.getElementById('login_user');
+                var oPass=document.getElementById('login_pass');
+                var oBtn=document.getElementById('login_btn');
+                var oBox=document.querySelector('#box_user');
+                var oWel=document.querySelector('.idCard');
+                oBtn.onclick=function(){
+                    if(oUser.value){
+                    ajax(url,{
+                        act:'login',
+                        user:encodeURIComponent(oUser.value),
+                        pass:encodeURIComponent(oPass.value)
+                    },function(str){
+                        var json=new Function('return '+str)();
+                        if(json.error){
+                            alert('登录失败！')
+                        }else{
+                            alert('登录成功！');
+                            oBox.style.top='-23rem';
+                            oWel.innerHTML= '您好用户'+ oUser.value;
+                        }
+                    });}
+                }
+            })();
+        };
+    </script>
+</head>
+<body>
+<header>
+    header
+</header>
+
+<section class="warp">
+    <div class="box_user" id="box_user">
+    <section class="register back">
+        <ul class="loginList">
+            <li class="loginList_1">用户注册</li>
+            <li class="inputBox">
+                <input type="text" class="inputs" id="add_user" placeholder="请输入邮箱或手机号">
+            </li>
+            <li class="inputBox">
+                <input type="password" class="inputs" id="add_pass" placeholder="请输入有效的密码">
+            </li>
+            <li class="btns">
+                <input id="add_btn" type="button" class="reg" value="注册" />
+            </li>
+            <li class="btns">
+                <input id="add_land"  type="button" class="reg" value="已有账号" />
+            </li>
+        </ul>
+    </section>
+    <section class="land front">
+        <ul class="loginList">
+            <li class="loginList_1">用户登陆</li>
+            <li class="inputBox">
+                <input type="text" class="inputs" id="login_user" placeholder="请输入邮箱或手机号">
+            </li>
+            <li class="inputBox">
+                <input type="password" class="inputs" id="login_pass" placeholder="请输入有效的密码">
+            </li>
+            <li class="btns">
+                <input id="login_btn" type="button" class="reg" value="登陆" />
+            </li>
+            <li class="btns">
+                <input id="login_land" type="button" class="reg" value="注册账号" />
+            </li>
+        </ul>
+    </section>
+   </div>
+
+    <section class="main">
+        <div class="box_comming"></div>
+        <div class="idCard">
+                <!--<img src="img/eee.jpg">-->
+            请登陆
+        </div>
+        <ul class="cate">
+            <li><a href="javascript:;">通知</a></li>
+            <li class="border"><a href="javascript:;">收藏</a> </li>
+            <li><a href="javascript:;">活动</a> </li>
+        </ul>
+        <ul class="sz">
+            <li class="bb"><a href="javascript:;">修改个人资料</a> </li>
+            <li class="mb"><a href="javascript:;">修改密码</a> </li>
+            <li class="mb"><a href="javascript:;" class="an">声音推送通知</a> </li>
+            <li class="bb"><a href="javascript:;">商城</a> </li>
+            <li class="bb"><a href="javascript:;">我要爆料</a> </li>
+            <li class="bb"><a href="javascript:;">反馈</a> </li>
+            <li><a href="javascript:;">设置</a> </li>
+        </ul>
+    </section>
+    <footer>
+        <ul class="nav">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="2.html">视频</a></li>
+            <li><a href="">关注</a></li>
+            <li><a href="4.html">我的</a></li>
+        </ul>
+    </footer>
+</section>
+<script>
+    ;(function(){
+        function change(){
+            document.documentElement.style.fontSize=20*document.documentElement.clientWidth/320+'px';
+        }
+        change();
+        window.addEventListener('resize', change, false);
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>demo</title>
+    <link rel="stylesheet" href="css/css.css"/>
+    <link rel="stylesheet" href="css/jsop.css"/>
+    <script src="js/ajax1.js"></script>
+    <script src="js/touch.js">
+    </script>
+    <script src="js/jsonp.js"></script>
+    <style>
+        *{
+            font-family: '微软雅黑';
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oInner=document.querySelector('#inner')
+            var oTxt  = document.getElementById('cool');
+
+            ;(function () {
+                var oBtn=document.querySelector('.search');
+                oBtn.onclick= function () {
+                  var url='https://www.baidu.com/s?ie=UTF-8&wd='
+                    oBtn.href=url+oTxt.value;
+                }
+            })()
+
+            oTxt.onkeyup = function(){
+                jsonp({
+                    url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+                    data:{wd:oTxt.value},
+                    cbName:'cb',
+                    success:function(json){
+                        var arr=json.s;
+                        var w=json.q;
+//                        alert(arr)
+                        if(arr.length)
+                        {
+                            oInner.style.display='block';
+                            oInner.style.opacity='1';
+                            oInner.style.WebkitTransform='rotateY(360deg)'
+                            oInner.innerHTML='';
+                            oInner.style.zIndex='3';
+                            for(var i=0;i<arr.length;i++)
+                            {
+                                var oLi=document.createElement('li');
+
+                                oLi.innerHTML=arr[i];
+
+//                                oLi.onmouseover=function ()
+//                                {
+//                                    this.style.background='#EEE';
+//                                };
+//                                oLi.onmouseout=function ()
+//                                {
+//                                    this.style.background='';
+//                                };
+
+                                oInner.appendChild(oLi);
+                                oLi.onclick= function () {
+                                    oTxt.value=this.innerHTML;
+                                    oInner.style.display='none';
+                                }
+                            }
+                        }
+                        else
+                        {
+                            oInner.style.display='none';
+                        }
+                    },
+                    error:function(){
+                        alert('亲，换网吧');
+                    }
+                });
+            };
+        };
+    </script>
+</head>
+<body>
+    <div id="box">
+        <header>header
+            <input type="text" clas id="cool"class="cool" placeholder="请输入关键字">
+            <a class="search" href="javascript:;">搜索</a>
+        </header>
+        <ul class="inner" id="inner"></ul>
+        <section>
+            <div id="loding">
+                <img src="roller.gif"><br>
+                <span>下拉刷新</span>
+            </div>
+            <div id="news">
+                <dl id="news_roller">
+                    <dt class="news_fir">推荐新闻</dt>
+                    <dd>
+                        <h4 >
+                            <a href="javascript:;">驻肯尼亚大使刘显法会见肯尼亚司法部长穆盖</a>
+                            <ul>
+                                <li class="information">海外网</li>
+                                <li class="information">275条评论</li>
+                                <li class="information">10-16 21:44</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n1.jpg" alt=""/>
+
+                    </dd>
+                    <dd>
+                        <h4 >
+                            <a href="javascript:;">驻肯尼亚大使刘显法会见肯刑事调查局局长穆霍</a>
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n2.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            <a href="javascript:;">驻科摩罗大使肖明出席援科广电中心项目第八期</a>
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n3.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            外交部副部长张业遂会见阿曼外交部秘书长巴德
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/4.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            驻迪拜总领馆举办侨界法律维权和领保工作座谈
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n5.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            综述：推进互利合作 期待金色收获——习近平
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n6.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            泰王位继承人暂缓登基 枢密院主席任摄政王
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/7.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            习近平会见孟加拉国总统哈米德
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n8.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            河北科大:已有机构运用韩春雨技术实现基因编辑
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n9.jpg" alt=""/>
+                    </dd>
+                    <p class="nothing">没有啦 T.T</p>
+                </dl>
+                <dl>
+                    <dt>热点新闻</dt>
+                    <dd>
+                        <h4 >
+                            曝国产奥迪A6L e-tron谍照 或11月上市
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n9.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            C-TREK定名“蔚领” 一汽-大众全新跨界旅行车首发
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n8.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            京哈高速车祸两司机一死一伤 涉事货车司机被找到
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/5.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            可以叫小Q7了！ 奥迪Q5新老款车型对比
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/2.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            要的就是性价比 吉利全新金刚领衔A0级轿车
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n6.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            各具特点 雪铁龙C6/迈腾/君越三车对比
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n5.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            [自主MPV导购]忆旧迎新 风行F600实力向上
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n4.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            南京网约车管理办法落地 驾驶员需本地户籍或居住..
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n3.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            同价异品如何选 兰德酷路泽对比埃尔法
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/n2.jpg" alt=""/>
+                    </dd>
+                    <p class="nothing">没有啦 T.T</p>
+                </dl>
+                <dl>
+                    <dt>国际新闻</dt>
+                    <dd>
+                        <h4 >
+                            男子将搁浅的大白鲨拖入海中 用生命做好事！
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/8.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            [短讯]英国央行委员福布斯：英国证明了货币政策..
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/8.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            "中国文化聚焦——江西文化周"活动非洲三国行
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/8.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            德媒：美科学家称打哈欠时间越长越聪明
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/8.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            新西兰一监狱恶斗事件频出 运营方被指管理不力
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/8.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            汤姆·汉克斯炮轰特朗普：他是一个自我为中心
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/8.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            新加坡学者：如果中国结盟那就离战争就不远了
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/8.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            外媒:日要扩建吉布提军事基地 抗衡中国在非影响力
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/8.jpg" alt=""/>
+                    </dd>
+                    <dd>
+                        <h4 >
+                            新西兰警方千里追截超速车辆
+                            <ul>
+                                <li class="information">{{user}}</li>
+                                <li class="information">{{page}}</li>
+                                <li class="information">{{time}}</li>
+                            </ul>
+                        </h4>
+                        <img src="img/8.jpg" alt=""/>
+                    </dd>
+                    <p class="nothing">没有啦 T.T</p>
+                </dl>
+                <dl>
+                    <dt>订阅号</dt>
+                    <dd> <div class="subscribe">
+                        <img class="subimg" src="img/dasheng.png">
+                        <p> 大圣互动</p><span class="subscribe_text">聚焦海外移动互联网业务</span>
+                    </div></dd>
+                    <dd> <div class="subscribe">
+                        <img class="subimg" src="img/web.jpg">
+                       <p> web前端开发</p><span class="subscribe_text">网站设计的7大误区</span>
+                    </div></dd>
+                    <dd> <div class="subscribe">
+                        <img class="subimg" src="img/mi.jpg">
+                        <p> 小米手机</p><span class="subscribe_text">小米note2即将上市</span>
+                    </div></dd>
+                    <dd> <div class="subscribe">
+                        <img class="subimg" src="img/car.jpg">
+                        <p> 汽车之家</p><span class="subscribe_text">全新jeep自由侠已上市</span>
+                    </div></dd>
+
+                </dl>
+            </div>
+        </section>
+        <footer>
+            <ul class="nav">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="2.html">视频</a></li>
+                <li><a href="">关注</a></li>
+                <li><a href="4.html">我的</a></li>
+            </ul>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
